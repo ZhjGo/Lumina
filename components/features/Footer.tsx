@@ -10,11 +10,16 @@ interface HitokotoData {
     from_who: string | null;
 }
 
-export function Footer() {
+interface FooterProps {
+    refreshTrigger?: number;
+}
+
+export function Footer({ refreshTrigger = 0 }: FooterProps) {
     const [quote, setQuote] = useState<HitokotoData | null>(null);
     const [loading, setLoading] = useState(true);
 
-    useEffect(() => {
+    const fetchQuote = () => {
+        setLoading(true);
         fetch("https://v1.hitokoto.cn?c=d&c=i&c=k") // Categories: Literature, Poetry, Philosophy
             .then((res) => res.json())
             .then((data) => {
@@ -22,7 +27,11 @@ export function Footer() {
                 setLoading(false);
             })
             .catch(() => setLoading(false));
-    }, []);
+    };
+
+    useEffect(() => {
+        fetchQuote();
+    }, [refreshTrigger]);
 
     return (
         <footer className="min-h-[60vh] flex flex-col justify-center items-center relative text-center px-6 pb-32">

@@ -18,6 +18,7 @@ interface HomeContentProps {
 export function HomeContent({ initialBg }: HomeContentProps) {
     const [currentBg, setCurrentBg] = useState(initialBg);
     const [isLoading, setIsLoading] = useState(false);
+    const [quoteKey, setQuoteKey] = useState(0);
 
     // Helper to generate optimized URLs
     const getOptimizedUrl = (url: string, width: number, quality: number = 80) => {
@@ -41,6 +42,7 @@ export function HomeContent({ initialBg }: HomeContentProps) {
         img.src = targetUrl; // Preload optimized version
         img.onload = () => {
             setCurrentBg(randomBg); // We store the base URL in state
+            setQuoteKey(prev => prev + 1); // Refresh quote
             setIsLoading(false);
         };
     };
@@ -134,7 +136,7 @@ export function HomeContent({ initialBg }: HomeContentProps) {
             </div>
 
             {/* Smart Footer (Serves as scroll buffer & content) */}
-            <Footer />
+            <Footer refreshTrigger={quoteKey} />
 
             {/* Fixed Bottom Dock */}
             <CategoryNav />
