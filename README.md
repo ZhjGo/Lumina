@@ -94,7 +94,24 @@ Vercel 是 Next.js 的官方部署平台，体验最佳。
 4. 保持默认配置（Framework Preset: Next.js），点击 **Deploy**。
 5. 等待约 1 分钟，部署完成！
 
-### 方案二：Docker 部署
+### 方案二：部署到 Cloudflare Pages (免费且快速)
+
+Cloudflare Pages 对 Next.js 的支持也非常好，且全球节点访问速度快。
+
+1. **准备代码**：将代码推送到 GitHub/GitLab。
+2. **创建项目**：
+   -登录 Cloudflare Dashboard，进入 **"Workers & Pages"**。
+   - 点击 **"Create Application"** -> **"Pages"** -> **"Connect to Git"**。
+3. **配置构建**：
+   - 选择你的仓库。
+   - **Framework Preset** 选择 `None` (或者 `Next.js Static Export`)。
+   - **Build Command**: `npm run build`
+   - **Build output directory**: `out`
+     - *注意：我已为您配置了 `output: 'export'`，这是部署静态导航站最快、最省心的方式。*
+   - 点击 **"Save and Deploy"**。
+4. **绑定域名** (可选)：部署成功后，在 "Custom domains" 中绑定你的个人域名。
+
+### 方案三：Docker 部署
 
 构建镜像并运行容器：
 
@@ -106,7 +123,7 @@ docker build -t lumina-start-page .
 docker run -p 3000:3000 lumina-start-page
 ```
 
-### 方案三：自行部署 (Node.js)
+### 方案四：自行部署 (Node.js)
 
 ```bash
 # 1. 构建生产版本
