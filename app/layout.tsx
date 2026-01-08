@@ -12,7 +12,7 @@ const quicksand = Quicksand({
 export const metadata: Metadata = {
   title: "LUMINA | 灵感起始页 - 沉浸式创意导航",
   description: "LUMINA 是一个为创意工作者打造的极简、沉浸式导航起始页。汇聚全球顶级设计灵感、开发工具与AI资源，提供丝滑的交互体验与每日灵感一言，让每一次新标签页的打开都成为享受。",
-  keywords: ["导航", "起始页", "设计师导航", "极简主页", "创意工具", "沉浸式体验", "LUMINA", "Next.js"],
+  keywords: ["导航", "起始页", "设计师导航", "极简主页", "创意工具", "沉浸式体验", "LUMINA", "Next.js", "网盘资源", "AI工具", "影视搜索", "夸克网盘"],
   icons: {
     icon: '/icon.png',
     apple: '/icon.png',
@@ -28,17 +28,17 @@ export const metadata: Metadata = {
 export const viewport: Viewport = {
   width: "device-width",
   initialScale: 1,
-  themeColor: "#E6E6FA",
+  themeColor: "#000000", // Updated to black to match immersive theme
 };
 
 const jsonLd = {
   "@context": "https://schema.org",
   "@type": "WebSite",
-  "name": "ClayNav 导航",
-  "url": "https://claynav.com",
+  "name": "LUMINA | 灵感起始页",
+  "url": "https://lumina.app", // Placeholder
   "potentialAction": {
     "@type": "SearchAction",
-    "target": "https://claynav.com?q={search_term_string}",
+    "target": "https://lumina.app?q={search_term_string}",
     "query-input": "required name=search_term_string"
   }
 };
