@@ -60,6 +60,8 @@ export default function RootLayout({
           type="application/ld+json"
           dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
         />
+        <link rel="preconnect" href="https://image.jkai.de" />
+        <link rel="dns-prefetch" href="https://image.jkai.de" />
         <div className="bg-noise" />
         {children}
       </body>

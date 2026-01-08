@@ -55,13 +55,15 @@ export function HomeContent({ initialBg }: HomeContentProps) {
                 <img
                     src={getOptimizedUrl(initialBg, 1920)}
                     srcSet={`
-                        ${getOptimizedUrl(initialBg, 640, 70)} 640w,
+                        ${getOptimizedUrl(initialBg, 640, 60)} 640w, 
                         ${getOptimizedUrl(initialBg, 1024, 75)} 1024w,
                         ${getOptimizedUrl(initialBg, 1920, 80)} 1920w,
                         ${getOptimizedUrl(initialBg, 2560, 85)} 2560w
                     `}
                     sizes="100vw"
                     alt="Base Background"
+                    // @ts-ignore - fetchPriority is valid HTML but React types might lag
+                    fetchPriority="high"
                     className="absolute inset-0 w-full h-full object-cover"
                 />
 
