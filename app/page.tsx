@@ -1,7 +1,7 @@
 import { HomeContent } from "@/components/features/HomeContent";
 import { wallpapers } from "@/data/wallpapers";
 
-export const revalidate = 0; // Ensure random wallpaper on every request
+// export const revalidate = 0; // Removed for Static Export compatibility
 
 export default function Home() {
   // Server-side random selection
