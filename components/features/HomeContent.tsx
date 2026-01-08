@@ -19,21 +19,28 @@ export function HomeContent({ initialBg }: HomeContentProps) {
     const [currentBg, setCurrentBg] = useState(initialBg);
     const [isLoading, setIsLoading] = useState(false);
 
+    // Helper to generate optimized URLs
+    const getOptimizedUrl = (url: string, width: number, quality: number = 80) => {
+        return `${url}?auto=format&fit=crop&q=${quality}&w=${width}`;
+    };
+
     const handleSwitchWallpaper = () => {
         if (isLoading) return;
         setIsLoading(true);
 
         let randomBg = currentBg;
-        // Ensure we get a different wallpaper
         while (randomBg === currentBg) {
             randomBg = wallpapers[Math.floor(Math.random() * wallpapers.length)];
         }
 
-        // Preload image
+        // Check window width to decide which image to preload (simple optimization)
+        const width = window.innerWidth > 1080 ? 1920 : 1080;
+        const targetUrl = getOptimizedUrl(randomBg, width);
+
         const img = new window.Image();
-        img.src = randomBg;
+        img.src = targetUrl; // Preload optimized version
         img.onload = () => {
-            setCurrentBg(randomBg);
+            setCurrentBg(randomBg); // We store the base URL in state
             setIsLoading(false);
         };
     };
@@ -42,16 +49,21 @@ export function HomeContent({ initialBg }: HomeContentProps) {
         <main className="min-h-screen overflow-x-hidden relative">
             {/* Immersive Background System */}
             <div className="fixed inset-0 z-[-1] bg-black">
-                {/* Layer 0: Static Base Layer (SSR Friendly) */}
-                {/* Crucial: This img tag is rendered by server and immediately visible. No animation opacity=0 issues. */}
+                {/* Layer 0: Static Base Layer (SSR Friendly) - Responsive LCP Optimization */}
                 <img
-                    src={initialBg}
+                    src={getOptimizedUrl(initialBg, 1920)}
+                    srcSet={`
+                        ${getOptimizedUrl(initialBg, 640, 70)} 640w,
+                        ${getOptimizedUrl(initialBg, 1024, 75)} 1024w,
+                        ${getOptimizedUrl(initialBg, 1920, 80)} 1920w,
+                        ${getOptimizedUrl(initialBg, 2560, 85)} 2560w
+                    `}
+                    sizes="100vw"
                     alt="Base Background"
                     className="absolute inset-0 w-full h-full object-cover"
                 />
 
                 {/* Layer 1: Animated Transition Layer */}
-                {/* Only renders when we switch wallpapers to fade the new one in on top of the base */}
                 <AnimatePresence mode="popLayout">
                     {currentBg !== initialBg && (
                         <motion.div
@@ -62,13 +74,11 @@ export function HomeContent({ initialBg }: HomeContentProps) {
                             transition={{ duration: 1.2, ease: "easeInOut" }}
                             className="absolute inset-0"
                         >
-                            <Image
-                                src={currentBg}
+                            {/* We use specific width for transition image to be safe */}
+                            <img
+                                src={getOptimizedUrl(currentBg, 1920)}
+                                className="absolute inset-0 w-full h-full object-cover"
                                 alt="Immersive Background"
-                                fill
-                                priority
-                                unoptimized
-                                className="object-cover"
                             />
                         </motion.div>
                     )}
