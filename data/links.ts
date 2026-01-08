@@ -33,6 +33,30 @@ export const linkData: Category[] = [
         ]
     },
     {
+        id: "ai",
+        name: "AI工具",
+        color: "bg-purple-400",
+        items: [
+            { title: "抖音AI豆包", url: "https://www.doubao.com/", description: "字节跳动出品的智能AI助手。" },
+            { title: "文心一言", url: "https://yiyan.baidu.com/", description: "百度全新一代知识增强大语言模型。" },
+            { title: "DeepSeek", url: "https://www.deepseek.com/", description: "深度求索，探索通往AGI的道路。" },
+            { title: "AiPPT", url: "https://www.aippt.cn/", description: "AI一键生成高质量PPT。" },
+            { title: "智谱清言", url: "https://chatglm.cn/", description: "基于ChatGLM大模型的智能助手。" },
+            { title: "讯飞绘镜", url: "https://typemovie.art/", description: "科大讯飞推出的AI绘画工具。" },
+            { title: "白日梦AI", url: "https://aibrm.com/", description: "AI文生图与视频创作平台。" },
+            { title: "美图设计室", url: "https://www.designkit.com/", description: "AI智能商用设计工具。" },
+            { title: "堆友", url: "https://d.design/", description: "阿里出品的3D设计资源与AI工具。" },
+            { title: "AI工具集", url: "https://ai-bot.cn/", description: "收录全球优质AI工具。" },
+            { title: "Kimi", url: "https://kimi.moonshot.cn/", description: "月之暗面科技推出的智能助手。" },
+            { title: "ChatGPT", url: "https://chat.openai.com/", description: "OpenAI 研发的聊天机器人程序。" },
+            { title: "纳米AI搜索", url: "https://www.n.cn", description: "新一代AI搜索引擎。" },
+            { title: "360AI搜索", url: "https://www.sou.com/?src=360so_index", description: "360推出的AI搜索工具。" },
+            { title: "秘塔AI搜索", url: "https://metaso.cn/", description: "没有广告的AI搜索。" },
+            { title: "腾讯元宝", url: "https://yuanbao.tencent.com", description: "腾讯混元大模型官方应用。" },
+            { title: "通义", url: "https://tongyi.ai", description: "阿里通义千问大模型。" },
+        ]
+    },
+    {
         id: "design",
         name: "设计办公",
         color: "bg-pink-400", // More vibrant color
@@ -83,30 +107,6 @@ export const linkData: Category[] = [
             { title: "菜鸟教程", url: "https://www.runoob.com/", description: "学的不仅是技术，更是梦想。" },
             { title: "微信开放文档", url: "https://developers.weixin.qq.com/doc/", description: "微信开发者官方文档中心。" },
             { title: "EdgeOne Pages", url: "https://edgeone.ai/zh/products/pages", description: "腾讯云EdgeOne边缘托管服务。" },
-        ]
-    },
-    {
-        id: "ai",
-        name: "AI工具",
-        color: "bg-purple-400",
-        items: [
-            { title: "抖音AI豆包", url: "https://www.doubao.com/", description: "字节跳动出品的智能AI助手。" },
-            { title: "文心一言", url: "https://yiyan.baidu.com/", description: "百度全新一代知识增强大语言模型。" },
-            { title: "DeepSeek", url: "https://www.deepseek.com/", description: "深度求索，探索通往AGI的道路。" },
-            { title: "AiPPT", url: "https://www.aippt.cn/", description: "AI一键生成高质量PPT。" },
-            { title: "智谱清言", url: "https://chatglm.cn/", description: "基于ChatGLM大模型的智能助手。" },
-            { title: "讯飞绘镜", url: "https://typemovie.art/", description: "科大讯飞推出的AI绘画工具。" },
-            { title: "白日梦AI", url: "https://aibrm.com/", description: "AI文生图与视频创作平台。" },
-            { title: "美图设计室", url: "https://www.designkit.com/", description: "AI智能商用设计工具。" },
-            { title: "堆友", url: "https://d.design/", description: "阿里出品的3D设计资源与AI工具。" },
-            { title: "AI工具集", url: "https://ai-bot.cn/", description: "收录全球优质AI工具。" },
-            { title: "Kimi", url: "https://kimi.moonshot.cn/", description: "月之暗面科技推出的智能助手。" },
-            { title: "ChatGPT", url: "https://chat.openai.com/", description: "OpenAI 研发的聊天机器人程序。" },
-            { title: "纳米AI搜索", url: "https://www.n.cn", description: "新一代AI搜索引擎。" },
-            { title: "360AI搜索", url: "https://www.sou.com/?src=360so_index", description: "360推出的AI搜索工具。" },
-            { title: "秘塔AI搜索", url: "https://metaso.cn/", description: "没有广告的AI搜索。" },
-            { title: "腾讯元宝", url: "https://yuanbao.tencent.com", description: "腾讯混元大模型官方应用。" },
-            { title: "通义", url: "https://tongyi.ai", description: "阿里通义千问大模型。" },
         ]
     },
     {
