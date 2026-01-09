@@ -44,7 +44,9 @@ export function SmartSearchBar() {
             <div className="relative group flex items-center">
 
                 {/* Engine Selector */}
-                <div className="absolute left-1.5 z-10">
+                {/* Engine Selector */}
+                {/* Engine Selector */}
+                <div className="absolute left-3 top-1/2 -translate-y-1/2 z-10">
                     <button
                         onClick={toggleDropdown}
                         className="flex items-center gap-0.5 md:gap-1 px-2 md:px-3 py-1.5 md:py-2 rounded-full bg-white/10 hover:bg-white/20 transition-colors text-white/90 text-xs md:text-sm font-medium focus:outline-none"
@@ -55,7 +57,7 @@ export function SmartSearchBar() {
 
                     {/* Dropdown Menu */}
                     {isDropdownOpen && (
-                        <div className="absolute top-full left-0 mt-2 w-20 md:w-24 py-1 bg-white/20 backdrop-blur-xl border border-white/20 rounded-xl shadow-xl overflow-hidden flex flex-col">
+                        <div className="absolute top-full left-0 mt-2 w-20 md:w-24 py-1 bg-white/20 backdrop-blur-xl border border-white/20 rounded-2xl shadow-xl overflow-hidden flex flex-col">
                             {(Object.keys(engines) as Array<keyof typeof engines>).map((key) => (
                                 <button
                                     key={key}
@@ -78,7 +80,7 @@ export function SmartSearchBar() {
                     onChange={(e) => setQuery(e.target.value)}
                     onKeyDown={handleKeyDown}
                     placeholder={`在 ${engines[engine].name} 中搜索...`}
-                    className="w-full pl-16 md:pl-24 pr-10 md:pr-12 py-3 md:py-4 text-left text-base md:text-lg text-white bg-white/10 backdrop-blur-2xl border border-white/20 rounded-full shadow-2xl hover:bg-white/15 hover:border-white/30 focus:bg-white/20 focus:border-white/50 focus:outline-none focus:ring-2 focus:ring-white/20 transition-all duration-300 placeholder:text-white/40 tracking-wider font-light"
+                    className="w-full pl-16 md:pl-25 pr-10 md:pr-12 py-3 md:py-4 text-left text-base md:text-lg text-white bg-white/10 backdrop-blur-2xl border border-white/20 rounded-full shadow-2xl hover:bg-white/15 hover:border-white/30 focus:bg-white/20 focus:border-white/50 focus:outline-none transition-all duration-300 placeholder:text-white/40 tracking-wider font-light"
                 />
 
                 <button
