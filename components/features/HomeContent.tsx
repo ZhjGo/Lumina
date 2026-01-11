@@ -8,7 +8,7 @@ import { DigitalClock } from "@/components/ui/DigitalClock";
 import { motion, AnimatePresence } from "framer-motion";
 import { wallpapers } from "@/data/wallpapers";
 import { useState } from "react";
-import { Fan, Github, Search } from "lucide-react";
+import { Fan, Github, Search, Download } from "lucide-react";
 import Image from "next/image";
 
 interface HomeContentProps {
@@ -93,6 +93,19 @@ export function HomeContent({ initialBg }: HomeContentProps) {
             </div>
 
             {/* Right Top Buttons */}
+            {/* Extension Download */}
+            <motion.a
+                href="https://github.com/ZhjGo/Lumina/releases"
+                target="_blank"
+                rel="noopener noreferrer"
+                whileHover={{ scale: 1.1 }}
+                whileTap={{ scale: 0.9 }}
+                className="fixed top-8 right-56 z-50 p-3 rounded-full bg-white/10 backdrop-blur-md border border-white/10 text-white/70 hover:text-white hover:bg-white/20 transition-colors shadow-lg"
+                title="下载扩展"
+            >
+                <Download className="w-5 h-5" />
+            </motion.a>
+
             {/* GitHub Link */}
             <motion.a
                 href="https://github.com/ZhjGo/Lumina"
