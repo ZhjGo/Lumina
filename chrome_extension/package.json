@@ -1,0 +1,30 @@
+{
+    "name": "lumina-newtab",
+    "version": "1.0.0",
+    "description": "LUMINA | 灵感起始页 - 沉浸式创意导航 Chrome 扩展",
+    "type": "module",
+    "scripts": {
+        "dev": "vite",
+        "build": "tsc && vite build",
+        "preview": "vite preview"
+    },
+    "dependencies": {
+        "clsx": "^2.1.1",
+        "framer-motion": "^12.24.10",
+        "lucide-react": "^0.562.0",
+        "react": "^19.2.3",
+        "react-dom": "^19.2.3",
+        "tailwind-merge": "^3.4.0"
+    },
+    "devDependencies": {
+        "@crxjs/vite-plugin": "^2.0.0-beta.25",
+        "@tailwindcss/postcss": "^4.0.0",
+        "@types/chrome": "^0.0.279",
+        "@types/react": "^19.0.0",
+        "@types/react-dom": "^19.0.0",
+        "@vitejs/plugin-react": "^4.3.4",
+        "tailwindcss": "^4.0.0",
+        "typescript": "^5.7.2",
+        "vite": "^6.0.3"
+    }
+}

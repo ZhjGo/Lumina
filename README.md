@@ -2,7 +2,12 @@
 
 **LUMINA** 是一个为创意工作者打造的极简、沉浸式导航起始页。汇聚全球顶级设计灵感、开发工具与AI资源，提供丝滑的交互体验与每日灵感一言，让每一次新标签页的打开都成为享受。
 
-![LUMINA Preview](/public/background.png)
+![LUMINA Preview](/public/Snipaste_2026-01-11_22-15-03.png)
+
+## 🌟 两种使用方式
+
+1. **🌐 Web 网页版**：部署到服务器或静态托管平台（Vercel/Cloudflare），随时访问
+2. **🧩 Chrome 扩展版**：替换浏览器新标签页，支持自定义分类和链接，数据本地存储
 
 ## ✨ 核心特性
 
@@ -56,6 +61,38 @@ npm run dev
 ```
 
 打开浏览器访问 [http://localhost:3000](http://localhost:3000) 即可看到效果。
+
+### 4. 使用 Chrome 扩展版本 🆕
+
+Chrome 扩展版提供了完整的自定义功能，可以替换浏览器新标签页。
+
+```bash
+# 进入扩展目录
+cd chrome_extension
+
+# 安装依赖
+npm install
+
+# 构建扩展
+npm run build
+```
+
+**加载扩展到 Chrome**：
+
+1. 打开 Chrome 浏览器，访问 `chrome://extensions/`
+2. 开启右上角的"开发者模式"
+3. 点击"加载已解压的扩展程序"
+4. 选择 `chrome_extension/dist` 目录
+5. 打开新标签页，享受 LUMINA！
+
+**扩展特性**：
+- ✅ 完全自定义分类和链接
+- ✅ Chrome Storage 数据持久化
+- ✅ 导入/导出配置
+- ✅ 重置为默认设置
+- ✅ 与网页版相同的视觉体验
+
+详细说明请查看 [chrome_extension/README.md](./chrome_extension/README.md)
 
 ## ⚙️ 配置指南
 
@@ -131,15 +168,30 @@ pm2 start npm --name "lumina" -- start
 
 ```
 .
-├── app/                  # Next.js App Router 页面逻辑
-│   ├── layout.tsx        # 全局布局 (字体、SEO、背景)
-│   └── page.tsx          # 首页主入口
-├── components/           # 组件库
-│   ├── features/         # 业务组件 (时钟、搜索、导航、Footer)
-│   └── ui/               # 基础 UI 组件
-├── data/                 # 静态数据 (链接、壁纸)
-├── public/               # 静态资源 (图标、图片)
-├── lib/                  # 工具函数
+├── app/                    # Next.js App Router 页面逻辑
+│   ├── layout.tsx          # 全局布局 (字体、SEO、背景)
+│   └── page.tsx            # 首页主入口
+├── components/             # React 组件库
+│   ├── features/           # 业务组件 (时钟、搜索、导航、Footer)
+│   └── ui/                 # 基础 UI 组件 (SmartFavicon)
+├── data/                   # 静态数据
+│   ├── links.ts            # 导航链接数据
+│   └── wallpapers.ts       # 壁纸列表
+├── public/                 # 静态资源 (图标、图片)
+├── lib/                    # 工具函数
+├── chrome_extension/       # Chrome 扩展版本 🆕
+│   ├── dist/               # 构建输出目录
+│   ├── public/             # 扩展图标资源
+│   ├── src/
+│   │   ├── components/     # React 组件 (与主项目共享)
+│   │   ├── data/           # 链接和壁纸数据
+│   │   ├── hooks/          # 自定义 Hooks (useCategories)
+│   │   ├── lib/            # 工具函数 (storage.ts)
+│   │   ├── newtab.html     # 新标签页 HTML
+│   │   └── newtab.tsx      # React 入口
+│   ├── manifest.json       # 扩展配置文件
+│   ├── vite.config.ts      # Vite 构建配置
+│   └── README.md           # 扩展使用说明
 └── ...
 ```
 

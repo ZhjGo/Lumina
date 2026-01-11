@@ -1,0 +1,17 @@
+{
+  "../../../../../../@crx/manifest": {
+    "file": "assets/crx-manifest.js-BZehMUba.js",
+    "name": "crx-manifest.js",
+    "src": "../../../../../../@crx/manifest",
+    "isEntry": true
+  },
+  "src/newtab.html": {
+    "file": "assets/newtab-CfNkAKI0.js",
+    "name": "newtab",
+    "src": "src/newtab.html",
+    "isEntry": true,
+    "css": [
+      "assets/newtab-CmGDwtH_.css"
+    ]
+  }
+}

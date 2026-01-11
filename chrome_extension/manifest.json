@@ -1,0 +1,17 @@
+{
+    "manifest_version": 3,
+    "name": "LUMINA | 灵感起始页",
+    "version": "1.0.0",
+    "description": "沉浸式创意导航起始页，汇聚全球顶级设计灵感、开发工具与AI资源",
+    "icons": {
+        "16": "icon.png",
+        "48": "icon.png",
+        "128": "icon.png"
+    },
+    "chrome_url_overrides": {
+        "newtab": "src/newtab.html"
+    },
+    "permissions": [
+        "storage"
+    ]
+}

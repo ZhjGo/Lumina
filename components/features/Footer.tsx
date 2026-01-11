@@ -71,7 +71,7 @@ export function Footer({ refreshTrigger = 0 }: FooterProps) {
 
             {/* Copyright / Info */}
             <div className="absolute bottom-12 text-white/20 text-xs tracking-widest uppercase flex flex-col gap-2 items-center">
-                <p>© 2024 NAV PRO. DESIGNED FOR IMMERSION.</p>
+                <p>© 2024 LUMINA. DESIGNED FOR IMMERSION.</p>
             </div>
         </footer>
     );

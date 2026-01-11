@@ -1,7 +1,7 @@
 "use client";
 
-import { Search, X } from "lucide-react";
-import { useState } from "react";
+import { Search } from "lucide-react";
+import { useState, useEffect, useRef } from "react";
 import { motion } from "framer-motion";
 import { cn } from "@/lib/utils";
 
@@ -9,12 +9,30 @@ export function SmartSearchBar() {
     const [query, setQuery] = useState("");
     const [engine, setEngine] = useState<"baidu" | "sogou" | "bing">("baidu");
     const [isDropdownOpen, setIsDropdownOpen] = useState(false);
+    const dropdownRef = useRef<HTMLDivElement>(null);
 
     const engines = {
         baidu: { name: "百度", url: "https://www.baidu.com/s?wd=", color: "text-blue-600" },
         sogou: { name: "搜狗", url: "https://www.sogou.com/web?query=", color: "text-orange-500" },
         bing: { name: "必应", url: "https://cn.bing.com/search?q=", color: "text-teal-600" },
     };
+
+    // 点击外部关闭下拉菜单
+    useEffect(() => {
+        const handleClickOutside = (event: MouseEvent) => {
+            if (dropdownRef.current && !dropdownRef.current.contains(event.target as Node)) {
+                setIsDropdownOpen(false);
+            }
+        };
+
+        if (isDropdownOpen) {
+            document.addEventListener("mousedown", handleClickOutside);
+        }
+
+        return () => {
+            document.removeEventListener("mousedown", handleClickOutside);
+        };
+    }, [isDropdownOpen]);
 
     const handleSearch = () => {
         if (!query.trim()) return;
@@ -44,9 +62,7 @@ export function SmartSearchBar() {
             <div className="relative group flex items-center">
 
                 {/* Engine Selector */}
-                {/* Engine Selector */}
-                {/* Engine Selector */}
-                <div className="absolute left-3 top-1/2 -translate-y-1/2 z-10">
+                <div ref={dropdownRef} className="absolute left-3 top-1/2 -translate-y-1/2 z-10">
                     <button
                         onClick={toggleDropdown}
                         className="flex items-center gap-0.5 md:gap-1 px-2 md:px-3 py-1.5 md:py-2 rounded-full bg-white/10 hover:bg-white/20 transition-colors text-white/90 text-xs md:text-sm font-medium focus:outline-none"
