@@ -30,7 +30,7 @@ export async function loadCategories(): Promise<Category[]> {
 }
 
 /**
- * 保存分类数据到 Chrome Storage
+ * 保存分类数据到 Chrome Storage Local
  */
 export async function saveCategories(categories: Category[]): Promise<void> {
     const data: StorageData = {
